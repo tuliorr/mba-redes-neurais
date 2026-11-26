@@ -23,5 +23,3 @@ Os exemplos das aulas 01 e 02 usam CPU e dados definidos nas próprias células.
 
 - [Notebook da aula](aula02/aula02.ipynb). Propagação direta, entropia cruzada binária, retropropagação em NumPy, conferência com `tf.GradientTape` e um passo de SGD com Keras.
 - [Atividade](aula02/atividade02.ipynb). Código base para calcular e comparar gradientes e medir o efeito de um passo de SGD sobre a perda.
-
-Nos notebooks de demonstração, use o painel **Outline** do VS Code para encontrar a seção indicada no slide. Execute as seções em ordem, pois elas reutilizam as entradas e os pesos.
