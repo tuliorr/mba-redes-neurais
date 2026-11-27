@@ -17,7 +17,7 @@ Os exemplos das aulas 01 e 02 usam CPU e dados definidos nas próprias células.
 ## Aula 01 · Fundamentos e propagação direta
 
 - [Notebook da aula](aula01/aula01.ipynb). Leituras dos sensores em pandas, perceptron em NumPy e scikit-learn, e XOR em NumPy e TensorFlow/Keras.
-- [Atividade](aula01/atividade01.ipynb). Código base para implementar OR e AND e comparar as saídas e os erros com identidade e ReLU em NumPy e Keras.
+- [Atividade](aula01/atividade01.ipynb). Código base para implementar OR e AND e comparar as saídas com ReLU e os erros em NumPy e Keras.
 
 ## Aula 02 · Aprendizagem e retropropagação
 
