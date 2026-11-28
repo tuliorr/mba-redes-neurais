@@ -23,3 +23,10 @@ Os exemplos das aulas 01 e 02 usam CPU e dados definidos nas próprias células.
 
 - [Notebook da aula](aula02/aula02.ipynb). Propagação direta, entropia cruzada binária, retropropagação em NumPy, conferência com `tf.GradientTape` e um passo de SGD com Keras.
 - [Atividade](aula02/atividade02.ipynb). Código base para calcular e comparar gradientes e medir o efeito de um passo de SGD sobre a perda.
+
+## Aula 03 · Treinamento de uma MLP
+
+- [Notebook da aula](aula03/aula03.ipynb). Treinamento da mesma rede em NumPy, TensorFlow/Keras e PyTorch com dados da Olist, curvas de perda, Average Precision e recuperação dos pesos para inferência.
+- [Atividade](aula03/atividade03.ipynb). Trabalho individual sobre preparação dos dados, treinamento e comparação de modelos. A célula inicial abre as tabelas. Preencha o nome e a matrícula no notebook.
+
+Os dois notebooks leem os CSVs em `dados/brutos/`. Em um clone novo, baixe o ZIP da [publicação da Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) e extraia `olist_orders_dataset.csv`, `olist_order_items_dataset.csv` e `olist_customers_dataset.csv` diretamente nessa pasta.
