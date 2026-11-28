@@ -1,16 +1,58 @@
 # B555 · Redes Neurais e Aprendizado Profundo
 
-## Ambiente local no VS Code
+## Instalação e execução no VS Code
 
-1. Instale Python 3.11 ou 3.12 de 64 bits e as extensões **Python** e **Jupyter** no VS Code.
-2. Abra esta pasta no VS Code. No Windows, selecione **Git Bash** no menu do terminal integrado. No Linux e no macOS com Apple Silicon, use o terminal com Bash.
-3. Crie o ambiente e instale as dependências.
+Use Git, Python **3.11 ou 3.12** de 64 bits e o VS Code com as extensões **Python** e **Jupyter**. A GPU é opcional.
 
-   ```bash
-   bash setup.sh
-   ```
+### CPU
 
-4. Abra o notebook e use **Select Kernel → Python Environments** para escolher o Python da `.venv` desta pasta. Se precisar indicar o caminho, use `.venv/Scripts/python.exe` no Windows ou `.venv/bin/python` no macOS e no Linux.
+No Windows, abra o **Git Bash**. No Linux ou macOS com Apple Silicon, use um terminal Bash. Clone o repositório e execute o setup padrão.
+
+```bash
+git clone https://github.com/tuliorr/mba-redes-neurais.git
+cd mba-redes-neurais
+bash setup.sh
+code .
+```
+
+### GPU NVIDIA no WSL2
+
+Tenha uma GPU NVIDIA compatível com CUDA, o driver NVIDIA no Windows e a extensão **WSL** no VS Code. Se precisar instalar o Ubuntu, rode `wsl --install -d Ubuntu` no PowerShell como administrador. Use `wsl -l -v` para confirmar que o Ubuntu está na versão **2**. [Instalação do WSL](https://learn.microsoft.com/pt-br/windows/wsl/install) · [CUDA no WSL](https://docs.nvidia.com/cuda/wsl-user-guide/index.html)
+
+No terminal do Ubuntu, confira se a GPU aparece em `nvidia-smi`. Se o comando não estiver no `PATH`, use `/usr/lib/wsl/lib/nvidia-smi`. Clone o repositório no Ubuntu.
+
+```bash
+cd ~
+git clone https://github.com/tuliorr/mba-redes-neurais.git
+cd mba-redes-neurais
+```
+
+Confira a versão com `python3 --version`. Se faltar o módulo `venv`, instale `python3-venv` no Ubuntu. Se o `python3` for de outra versão, crie a `.venv` com Python 3.12 antes do setup. Com o `uv` instalado, rode `uv venv --python 3.12 --seed .venv`. [Instalação do uv](https://docs.astral.sh/uv/getting-started/installation/)
+
+```bash
+bash setup.sh --gpu
+code .
+```
+
+Confirme que o VS Code abriu a pasta em **WSL: Ubuntu** e instale as extensões **Python** e **Jupyter** nesse ambiente se solicitado. [VS Code no WSL](https://code.visualstudio.com/docs/remote/wsl)
+
+### Abrir o notebook
+
+Abra o `.ipynb` e, em **Select Kernel → Python Environments**, selecione o Python da `.venv` do repositório. O caminho é `.venv/Scripts/python.exe` no Windows nativo e `.venv/bin/python` no Linux, WSL2 e macOS. Execute as células em ordem.
+
+Na Aula 03, o TensorFlow e o PyTorch usam a GPU quando disponível. Para forçar CPU, execute `import os` e `os.environ["CUDA_VISIBLE_DEVICES"] = "-1"` em um kernel recém-iniciado, antes de importar os frameworks.
+
+Para conferir se o kernel detecta a GPU, execute a célula abaixo.
+
+```python
+import tensorflow as tf
+import torch
+
+print(tf.config.list_physical_devices("GPU"))
+print(torch.cuda.is_available())
+```
+
+Com CUDA disponível, o TensorFlow lista pelo menos uma GPU e o PyTorch imprime `True`.
 
 Os exemplos das aulas 01 e 02 usam CPU e dados definidos nas próprias células. As duas atividades são individuais. Preencha o nome e a matrícula no notebook.
 
